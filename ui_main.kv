@@ -1,0 +1,32 @@
+Screen:
+    BoxLayout:
+        orientation:    "vertical"
+        padding:    5
+        spacing:    5
+        Camera:
+            id: camera
+            play:   True
+            resolution: (640,480)
+        BoxLayout:
+            orientation:    'horizontal'
+            padding:    5
+            spacing:    5
+            MDTextField:
+                hint_text: "Введите IP адрес сервера"
+                pos_hint: {"center_x": .5, 'y': 0.5}
+                text:   "http://192.168.1.5:5000"
+                id: ip
+            MDRectangleFlatButton:
+                text: "Соединиться"
+                pos_hint: {"center_x": .5, 'y': 0.5}
+                on_press:   app.try_connetion()
+
+        MDRectangleFlatButton:
+            text: "Распознать!"
+            pos_hint: {"center_x": .5, 'y': 0.5}
+            on_press:   app.predict()
+            disabled: True
+            id: predict_button
+            md_bg_color: 1, 0, 0, 0.5
+        Label:
+            text:   "Я думаю, что на фото: "
